@@ -1,4 +1,4 @@
-const Customer = require("../models/customer.model.js");
+const User = require("../models/user.model.js");
 
 //create and save a new Customer
 exports.create = (req, res) => {
@@ -7,23 +7,23 @@ exports.create = (req, res) => {
             message: "Content cannot be empty"
         });
     }
-    console.log("------------------->", req.body.email);
+
     //create a new Customer
-    const customer = new Customer({
+    const user = new User({
         email: req.body.email,
-        name: req.body.name,
-        active: req.body.active
+        username: req.body.username,
+        password: req.body.password
     })
 
-    Customer.create(customer, (err, data) => {
-        if(err){
-            res.status(500).send({
-                message: err.message || "Some error occured while creating the customer"
-            });
-        }else{
-            res.send(data);
-        }
+    User.create(user)
+    .then(data => {
+        res.send(data);
     })
+    .catch( err => {
+        res.status(500).send({
+            message: err.message || "Some error occured while creating the customer"
+        });
+    });
 };
 
 //retrieve all customers from the database
@@ -41,7 +41,7 @@ exports.findAll = (req, res) => {
 
 //find a single customer with a customerId
 exports.findOne = (req, res) => {
-    Customer.findById(req.params.customerId, (err, data) => {
+    User.findById(req.params.customerId, (err, data) => {
         if(err){
             if(err.kind === "not_found"){
                 res.status(404).send({

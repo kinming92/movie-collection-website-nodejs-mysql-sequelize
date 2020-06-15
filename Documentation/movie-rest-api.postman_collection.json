@@ -1,0 +1,908 @@
+{
+	"info": {
+		"_postman_id": "4dadae29-58c5-4b6a-abad-9098e2906042",
+		"name": "movie-rest-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "signup user 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d49955f6-8ec3-4526-997f-20bfe95c7bb1",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"km\",\n\t\"password\": \"km\",\n\t\"email\": \"km@km.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signin user 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7e1df9c0-1c6f-4f41-b920-59fa72020544",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\n\t\"username\": \"km\",\n\t\"password\": \"km\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user 1 create a new movie 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d2649b37-c3a4-4179-b3a8-aa08fe0f4d31",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "km",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "km",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"ironman\",\r\n    \"year\": \"2019\",\r\n    \"genre\": \"fiction\",\r\n    \"rating\": \"PG-13\",\r\n    \"userRating\": 3,\r\n    \"image\": \"https://kinming92.github.io\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/movies?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTkyMTgyMzUxLCJleHAiOjE1OTU3ODIzNTF9.3nKm2DzEMXlkzoyKYWOL9llxmETKgBqp2Ksq9Lzbs1w",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTkyMTgyMzUxLCJleHAiOjE1OTU3ODIzNTF9.3nKm2DzEMXlkzoyKYWOL9llxmETKgBqp2Ksq9Lzbs1w"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user 1 create a new movie 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "72a36997-904a-42ff-9721-e60c365246ff",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "km",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "km",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"superman\",\r\n    \"year\": \"2017\",\r\n    \"genre\": \"action\",\r\n    \"rating\": \"PG-13\",\r\n    \"userRating\": 3,\r\n    \"image\": \"https://image.com\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/movies?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTkyMTAzNzE3LCJleHAiOjE1OTU3MDM3MTd9.njrr49nAsX5Exhu2TVBG2AspGZFFwDY4wTFNeUJn_3Q",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTkyMTAzNzE3LCJleHAiOjE1OTU3MDM3MTd9.njrr49nAsX5Exhu2TVBG2AspGZFFwDY4wTFNeUJn_3Q"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user 1 create a new movie 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "65fc15e7-4178-4f1c-a53e-f15d1ebff602",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "km",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "km",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"lady bird\",\r\n    \"year\": \"2020\",\r\n    \"genre\": \"romance\",\r\n    \"rating\": \"PG-13\",\r\n    \"userRating\": 5,\r\n    \"image\": \"https://picture.com\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/movies?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTkyMTAzNzE3LCJleHAiOjE1OTU3MDM3MTd9.njrr49nAsX5Exhu2TVBG2AspGZFFwDY4wTFNeUJn_3Q",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTkyMTAzNzE3LCJleHAiOjE1OTU3MDM3MTd9.njrr49nAsX5Exhu2TVBG2AspGZFFwDY4wTFNeUJn_3Q"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user 1 create a new movie 4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d2d3d145-6f53-4c74-a3f1-4a8ae3e287b7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "km",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "km",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"hello\",\r\n    \"year\": \"2009\",\r\n    \"genre\": \"sci-fi\",\r\n    \"rating\": \"PG-13\",\r\n    \"userRating\": 1,\r\n    \"image\": \"https://random.io\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/movies?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTkyMTAzNzE3LCJleHAiOjE1OTU3MDM3MTd9.njrr49nAsX5Exhu2TVBG2AspGZFFwDY4wTFNeUJn_3Q",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTkyMTAzNzE3LCJleHAiOjE1OTU3MDM3MTd9.njrr49nAsX5Exhu2TVBG2AspGZFFwDY4wTFNeUJn_3Q"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signup user 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "db8f89d8-64bb-47ba-a5ce-8a403ca7096b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"username\": \"John\",\r\n\t\"password\": \"John\",\r\n\t\"email\": \"John@km.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signin user 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5104f9ab-7def-4c13-9315-957ab70063ef",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\r\n\t\"username\": \"John\",\r\n\t\"password\": \"John\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user 2 create a new movie 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "64502d1a-9d20-422c-b2fc-de39c1af3dfc",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "john",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "km",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"pricess and the frog\",\r\n    \"year\": \"2001\",\r\n    \"genre\": \"action\",\r\n    \"rating\": \"PG-13\",\r\n    \"userRating\": 4,\r\n    \"image\": \"https://image-rul.com\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/movies?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTkyMTE4MjUzLCJleHAiOjE1OTU3MTgyNTN9.0xjbP7Rsv0uMnnrBihJYdeQZJBNeBTd1morOq4ve4Po",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTkyMTE4MjUzLCJleHAiOjE1OTU3MTgyNTN9.0xjbP7Rsv0uMnnrBihJYdeQZJBNeBTd1morOq4ve4Po"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user 2 create a new movie 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f6be2092-cb10-4e61-96dc-05a68331e3fb",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "john",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "km",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"snow white\",\r\n    \"year\": \"2001\",\r\n    \"genre\": \"kid\",\r\n    \"rating\": \"PG-13\",\r\n    \"userRating\": 4,\r\n    \"image\": \"https://snow-white.imdb.rul\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/movies/?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTkyMTE4MjUzLCJleHAiOjE1OTU3MTgyNTN9.0xjbP7Rsv0uMnnrBihJYdeQZJBNeBTd1morOq4ve4Po",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies",
+						""
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTkyMTE4MjUzLCJleHAiOjE1OTU3MTgyNTN9.0xjbP7Rsv0uMnnrBihJYdeQZJBNeBTd1morOq4ve4Po"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user 1 create a new movie 5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ba172722-0653-4eda-940d-09c317606862",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "km",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "km",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Frozen II\",\r\n    \"year\": \"2019\",\r\n    \"genre\": \"animation\",\r\n    \"rating\": \"PG-13\",\r\n    \"userRating\": 5,\r\n    \"image\": \"https://frozen.ioad.ass\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/movies?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTkyMTAzNzE3LCJleHAiOjE1OTU3MDM3MTd9.njrr49nAsX5Exhu2TVBG2AspGZFFwDY4wTFNeUJn_3Q",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTkyMTAzNzE3LCJleHAiOjE1OTU3MDM3MTd9.njrr49nAsX5Exhu2TVBG2AspGZFFwDY4wTFNeUJn_3Q"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all movie by user 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "449bb4fe-8dd7-4958-84c0-0f1be4002e0d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/movies/all?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTkyMTg2MTU3LCJleHAiOjE1OTU3ODYxNTd9.1QEvtz72__mfhj6_YhmZGvjIrn8C7vxsXwaLSQqS5kk",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies",
+						"all"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTkyMTg2MTU3LCJleHAiOjE1OTU3ODYxNTd9.1QEvtz72__mfhj6_YhmZGvjIrn8C7vxsXwaLSQqS5kk"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "retrieve 1 movie by user 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "00c45b90-772a-47b2-a9a4-41ef47935a3b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/movies/3?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTkyMTgyMzUxLCJleHAiOjE1OTU3ODIzNTF9.3nKm2DzEMXlkzoyKYWOL9llxmETKgBqp2Ksq9Lzbs1w",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies",
+						"3"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTkyMTgyMzUxLCJleHAiOjE1OTU3ODIzNTF9.3nKm2DzEMXlkzoyKYWOL9llxmETKgBqp2Ksq9Lzbs1w"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user 1 update movie 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ee11c0f5-55d5-4518-940e-c0abde6c451a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "km",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "km",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"lady bird 2\",\r\n    \"year\": \"1999\",\r\n    \"genre\": \"romance\",\r\n    \"rating\": \"PG-13\",\r\n    \"userRating\": 5,\r\n    \"image\": \"https://oldpicture.com\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/movies/3?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTkyMTAzNzE3LCJleHAiOjE1OTU3MDM3MTd9.njrr49nAsX5Exhu2TVBG2AspGZFFwDY4wTFNeUJn_3Q",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies",
+						"3"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTkyMTAzNzE3LCJleHAiOjE1OTU3MDM3MTd9.njrr49nAsX5Exhu2TVBG2AspGZFFwDY4wTFNeUJn_3Q"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user 1 delete movie 4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "12712301-c916-40b3-bb81-626fd1204d99",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "km",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "km",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/movies/4?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTkyMTAzNzE3LCJleHAiOjE1OTU3MDM3MTd9.njrr49nAsX5Exhu2TVBG2AspGZFFwDY4wTFNeUJn_3Q",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies",
+						"4"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTkyMTAzNzE3LCJleHAiOjE1OTU3MDM3MTd9.njrr49nAsX5Exhu2TVBG2AspGZFFwDY4wTFNeUJn_3Q"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user 1 delete all its movie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7f12f89e-fa51-4fdc-b4e6-7ae7bec78e66",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "km",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "km",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/movies/?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTkyMTAzNzE3LCJleHAiOjE1OTU3MDM3MTd9.njrr49nAsX5Exhu2TVBG2AspGZFFwDY4wTFNeUJn_3Q",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movies",
+						""
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTkyMTAzNzE3LCJleHAiOjE1OTU3MDM3MTd9.njrr49nAsX5Exhu2TVBG2AspGZFFwDY4wTFNeUJn_3Q"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
